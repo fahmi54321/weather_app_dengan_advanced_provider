@@ -18,7 +18,7 @@ class WeatherProvider with ChangeNotifier {
     required this.weatherRepository,
   });
 
-  // todo 9 method api (finish)
+  // todo 9 method api
   Future<void> fetchWather(String city) async {
     _state = _state.copyWith(status: WeatherStatus.loading);
     notifyListeners();

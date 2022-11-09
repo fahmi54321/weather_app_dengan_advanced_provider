@@ -54,7 +54,7 @@ class WeatherApiServices {
     final Uri uri = Uri(
         scheme: 'https',
         host: kApiHost,
-        path: '/data/2.5/wather',
+        path: '/data/2.5/weather',
         queryParameters: {
           'lat': '${directGeocoding.lat}',
           'lon': '${directGeocoding.lon}',
@@ -64,6 +64,8 @@ class WeatherApiServices {
 
     try {
       final http.Response response = await httpClient.get(uri);
+
+      print('status code : ${response.statusCode}');
 
       if (response.statusCode != 200) {
         throw Exception(
