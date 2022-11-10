@@ -1,7 +1,5 @@
 import 'package:equatable/equatable.dart';
 
-//todo 1 (next weather.dart)
-
 class DirectGeocoding extends Equatable {
   final String name;
   final double lat;

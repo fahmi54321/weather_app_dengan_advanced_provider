@@ -1,7 +1,5 @@
 import 'package:equatable/equatable.dart';
 
-//todo 2 (next custom_error.dart)
-
 class Weather extends Equatable {
   final String description;
   final String icon;

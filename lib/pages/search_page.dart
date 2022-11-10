@@ -12,7 +12,6 @@ class _SearchPageState extends State<SearchPage> {
   String? city;
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
-  //todo 2 (next home_page.dart)
   void _submit() {
     setState(() {
       autovalidateMode = AutovalidateMode.always;

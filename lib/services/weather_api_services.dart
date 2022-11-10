@@ -15,7 +15,6 @@ class WeatherApiServices {
     required this.httpClient,
   });
 
-  //todo 1
   Future<DirectGeocoding> getDirectGeocoding(String city) async {
     final Uri uri = Uri(
         scheme: 'https',
@@ -49,7 +48,6 @@ class WeatherApiServices {
     }
   }
 
-  //todo 2 (finish)
   Future<Weather> getWeather(DirectGeocoding directGeocoding) async {
     final Uri uri = Uri(
         scheme: 'https',

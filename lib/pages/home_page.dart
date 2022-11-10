@@ -14,17 +14,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   String? city;
 
-  //todo 5
   late final WeatherProvider weatherProvider;
 
-  //todo 6
   @override
   void dispose() {
     weatherProvider.removeListener(_registerListener);
     super.dispose();
   }
 
-  //todo 7
   @override
   void initState() {
     super.initState();
@@ -32,7 +29,6 @@ class _HomePageState extends State<HomePage> {
     weatherProvider.addListener(_registerListener);
   }
 
-  //todo 8
   void _registerListener() {
     final WeatherState state = context.read<WeatherProvider>().state;
 
@@ -48,7 +44,6 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  //todo 9 (finish)
   Widget _showWeather() {
     final state = context.watch<WeatherProvider>().state;
 
@@ -120,7 +115,6 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () async {
-              //todo 1 (next search_page.dart)
               city = await Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -128,7 +122,6 @@ class _HomePageState extends State<HomePage> {
                 ),
               );
 
-              // todo 3
               if (city != null) {
                 context.read<WeatherProvider>().fetchWather(city ?? '');
               }
@@ -152,7 +145,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: _showWeather(), //todo 4
+      body: _showWeather(),
     );
   }
 }

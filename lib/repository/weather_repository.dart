@@ -5,13 +5,11 @@ import 'package:weather_app_dengan_advanced_provider/models/weather.dart';
 import 'package:weather_app_dengan_advanced_provider/services/weather_api_services.dart';
 
 class WeatherRepository {
-  //todo 1
   WeatherApiServices weatherApiServices;
   WeatherRepository({
     required this.weatherApiServices,
   });
 
-  //todo 2 (finish)
   Future<Weather> fetchWeather(String city) async {
     try {
       final DirectGeocoding directGeocoding =

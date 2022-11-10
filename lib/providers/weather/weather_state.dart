@@ -1,6 +1,5 @@
 part of 'weather_provider.dart';
 
-//todo 1 create status
 enum WeatherStatus {
   initial,
   loading,
@@ -9,7 +8,6 @@ enum WeatherStatus {
 }
 
 class WeatherState extends Equatable {
-  //todo 2
   final WeatherStatus status;
   final Weather weather;
   final CustomError customError;
@@ -19,7 +17,6 @@ class WeatherState extends Equatable {
     required this.customError,
   });
 
-  // todo 6 initial (next weather_provider.dart)
   factory WeatherState.initial() {
     return WeatherState(
       status: WeatherStatus.initial,
@@ -28,15 +25,12 @@ class WeatherState extends Equatable {
     );
   }
 
-  // todo 3 equatable
   @override
   List<Object> get props => [status, weather, customError];
 
-  // todo 4 toString
   @override
   bool get stringify => true;
 
-  // todo 5 copyWith
   WeatherState copyWith({
     WeatherStatus? status,
     Weather? weather,
