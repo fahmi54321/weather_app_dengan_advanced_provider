@@ -1,21 +1,24 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+
 import 'package:weather_app_dengan_advanced_provider/providers/weather/weather_provider.dart';
 
 part 'theme_state.dart';
 
-class ThemeProvider extends ChangeNotifier {
-  //todo 7
-  ThemeState _state = ThemeState.initial();
-  ThemeState get state => _state;
+class ThemeProvider {
+  //todo 1
+  WeatherProvider weatherProvider;
+  ThemeProvider({
+    required this.weatherProvider,
+  });
 
-  //todo 8 (finish)
-  void update(WeatherProvider weatherProvider) {
+  //todo 2 (next main.dart)
+  ThemeState get state {
     if (weatherProvider.state.weather.temp > 50) {
-      _state = _state.copyWith(appTheme: AppTheme.light);
+      return ThemeState(appTheme: AppTheme.light);
     } else {
-      _state = _state.copyWith(appTheme: AppTheme.dark);
+      return ThemeState(appTheme: AppTheme.dark);
     }
-    notifyListeners();
   }
 }

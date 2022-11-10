@@ -36,21 +36,19 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => TempProvider(),
         ),
-        ChangeNotifierProxyProvider<WeatherProvider, ThemeProvider>(
-          create: (context) => ThemeProvider(),
+
+        //todo 3 (finish)
+        ProxyProvider<WeatherProvider, ThemeProvider>(
           update: (
             BuildContext context,
             WeatherProvider weatherProvider,
-            ThemeProvider? themeProvider,
+            _,
           ) =>
-              themeProvider!..update(weatherProvider),
+              ThemeProvider(weatherProvider: weatherProvider),
         ),
       ],
-      //todo 1 ganti child ke builder jika error
       builder: (context, _) => MaterialApp(
         title: 'Flutter Demo',
-
-        //todo 2 (finish)
         theme: context.watch<ThemeProvider>().state.appTheme == AppTheme.light
             ? ThemeData.light()
             : ThemeData.dark(),
