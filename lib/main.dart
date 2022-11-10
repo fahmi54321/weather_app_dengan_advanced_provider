@@ -33,12 +33,9 @@ class MyApp extends StatelessWidget {
             weatherRepository: context.read<WeatherRepository>(),
           ),
         ),
-
         ChangeNotifierProvider(
           create: (context) => TempProvider(),
         ),
-
-        //todo 1 (finish)
         ChangeNotifierProxyProvider<WeatherProvider, ThemeProvider>(
           create: (context) => ThemeProvider(),
           update: (
@@ -49,11 +46,14 @@ class MyApp extends StatelessWidget {
               themeProvider!..update(weatherProvider),
         ),
       ],
-      child: MaterialApp(
+      //todo 1 ganti child ke builder jika error
+      builder: (context, _) => MaterialApp(
         title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+
+        //todo 2 (finish)
+        theme: context.watch<ThemeProvider>().state.appTheme == AppTheme.light
+            ? ThemeData.light()
+            : ThemeData.dark(),
         home: const HomePage(),
       ),
     );
