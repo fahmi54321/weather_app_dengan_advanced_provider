@@ -4,6 +4,7 @@ import 'package:weather_app_dengan_advanced_provider/pages/home_page.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 import 'package:weather_app_dengan_advanced_provider/providers/temp/temp_provider.dart';
+import 'package:weather_app_dengan_advanced_provider/providers/theme/theme_provider.dart';
 import 'package:weather_app_dengan_advanced_provider/providers/weather/weather_provider.dart';
 import 'package:weather_app_dengan_advanced_provider/repository/weather_repository.dart';
 import 'package:weather_app_dengan_advanced_provider/services/weather_api_services.dart';
@@ -33,9 +34,19 @@ class MyApp extends StatelessWidget {
           ),
         ),
 
-        //todo 1 (finish)
         ChangeNotifierProvider(
           create: (context) => TempProvider(),
+        ),
+
+        //todo 1 (finish)
+        ChangeNotifierProxyProvider<WeatherProvider, ThemeProvider>(
+          create: (context) => ThemeProvider(),
+          update: (
+            BuildContext context,
+            WeatherProvider weatherProvider,
+            ThemeProvider? themeProvider,
+          ) =>
+              themeProvider!..update(weatherProvider),
         ),
       ],
       child: MaterialApp(
