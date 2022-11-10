@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app_dengan_advanced_provider/pages/search_page.dart';
+import 'package:weather_app_dengan_advanced_provider/pages/settings_page.dart';
 import 'package:weather_app_dengan_advanced_provider/providers/weather/weather_provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -134,6 +135,19 @@ class _HomePageState extends State<HomePage> {
             },
             icon: Icon(
               Icons.search,
+            ),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SettingsPage(),
+                ),
+              );
+            },
+            icon: const Icon(
+              Icons.settings,
             ),
           ),
         ],
